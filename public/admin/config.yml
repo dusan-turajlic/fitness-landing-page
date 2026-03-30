@@ -2,8 +2,7 @@ backend:
   name: github
   repo: dusan-turajlic/fitness-landing-page
   branch: main
-  # TODO: Replace with your actual Vercel deployment URL after first deploy
-  base_url: https://your-site.vercel.app
+  base_url: https://fitness-landing-page-git-featur-190c92-dusan-turajlics-projects.vercel.app
   auth_endpoint: api/auth
 
 media_folder: public
