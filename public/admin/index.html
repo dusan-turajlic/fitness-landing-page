@@ -7,5 +7,274 @@
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      CMS.init({
+        config: {
+          backend: {
+            name: "github",
+            repo: "dusan-turajlic/fitness-landing-page",
+            branch: "main",
+            base_url: "https://fitness-landing-page-git-featur-190c92-dusan-turajlics-projects.vercel.app",
+            auth_endpoint: "api/auth",
+          },
+          media_folder: "public",
+          public_folder: "/",
+          collections: [
+            {
+              name: "videos",
+              label: "Hero Video",
+              files: [
+                {
+                  label: "Video Config",
+                  name: "video_config",
+                  file: "config/videos.json",
+                  fields: [
+                    {
+                      label: "Hero",
+                      name: "hero",
+                      widget: "object",
+                      fields: [
+                        { label: "Video URL", name: "src", widget: "string" },
+                        { label: "Poster Image URL", name: "poster", widget: "string", required: false },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "images",
+              label: "Site Images",
+              files: [
+                {
+                  label: "Image Config",
+                  name: "image_config",
+                  file: "config/images.json",
+                  fields: [
+                    { label: "Logo", name: "logo", widget: "image" },
+                    { label: "About Image", name: "about", widget: "image" },
+                    { label: "Placeholder Image", name: "placeholder", widget: "image" },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "translations_en",
+              label: "Content (English)",
+              files: [
+                {
+                  label: "English Text",
+                  name: "en",
+                  file: "messages/en.json",
+                  fields: [
+                    {
+                      label: "Header", name: "header", widget: "object",
+                      fields: [
+                        { label: "Logo Text", name: "logo", widget: "string" },
+                        { label: "Theme Light Label", name: "themeLight", widget: "string" },
+                        { label: "Theme Dark Label", name: "themeDark", widget: "string" },
+                        { label: "Theme System Label", name: "themeSystem", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Hero Section", name: "hero", widget: "object",
+                      fields: [
+                        { label: "Headline", name: "headline", widget: "string" },
+                        { label: "Subheadline", name: "subheadline", widget: "string" },
+                        { label: "CTA Button Text", name: "cta", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "About Section", name: "about", widget: "object",
+                      fields: [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Body Text", name: "text", widget: "text" },
+                      ],
+                    },
+                    {
+                      label: "Blog Section", name: "blog", widget: "object",
+                      fields: [
+                        { label: "Section Title", name: "title", widget: "string" },
+                        { label: "Read More Link Text", name: "readMore", widget: "string" },
+                        { label: "No Articles Message", name: "noArticles", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Contact Section", name: "contact", widget: "object",
+                      fields: [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Body Text", name: "text", widget: "text" },
+                        { label: "CTA Button Text", name: "cta", widget: "string" },
+                        { label: "Email Address", name: "email", widget: "string" },
+                        { label: "Phone Number", name: "phone", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Footer", name: "footer", widget: "object",
+                      fields: [
+                        { label: "Copyright Text", name: "copyright", widget: "string" },
+                        { label: "Privacy Policy Link Text", name: "privacy", widget: "string" },
+                        { label: "Terms of Service Link Text", name: "terms", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Form Wizard", name: "formWizard", widget: "object",
+                      fields: [
+                        {
+                          label: "Step 1", name: "step1", widget: "object",
+                          fields: [
+                            { label: "Title", name: "title", widget: "string" },
+                            { label: "Fitness Goal Label", name: "fitnessGoal", widget: "string" },
+                            { label: "Weight Loss Option", name: "weightLoss", widget: "string" },
+                            { label: "Muscle Gain Option", name: "muscleGain", widget: "string" },
+                            { label: "General Fitness Option", name: "generalFitness", widget: "string" },
+                            { label: "Strength Option", name: "strength", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "Step 2", name: "step2", widget: "object",
+                          fields: [
+                            { label: "Title", name: "title", widget: "string" },
+                            { label: "Experience Level Label", name: "experienceLevel", widget: "string" },
+                            { label: "Beginner Option", name: "beginner", widget: "string" },
+                            { label: "Intermediate Option", name: "intermediate", widget: "string" },
+                            { label: "Advanced Option", name: "advanced", widget: "string" },
+                            { label: "Days Per Week Label", name: "daysPerWeek", widget: "string" },
+                            { label: "Additional Info Label", name: "additionalInfo", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "Step 3", name: "step3", widget: "object",
+                          fields: [
+                            { label: "Title", name: "title", widget: "string" },
+                            { label: "First Name Label", name: "firstName", widget: "string" },
+                            { label: "Last Name Label", name: "lastName", widget: "string" },
+                            { label: "Email Label", name: "email", widget: "string" },
+                            { label: "Accept Terms Label", name: "acceptTerms", widget: "string" },
+                          ],
+                        },
+                        { label: "Next Button", name: "next", widget: "string" },
+                        { label: "Previous Button", name: "previous", widget: "string" },
+                        { label: "Submit Button", name: "submit", widget: "string" },
+                        { label: "Step Counter Text", name: "stepOf", widget: "string" },
+                        { label: "Success Message", name: "success", widget: "string" },
+                        { label: "Error Message", name: "error", widget: "string" },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "translations_fi",
+              label: "Content (Finnish)",
+              files: [
+                {
+                  label: "Finnish Text",
+                  name: "fi",
+                  file: "messages/fi.json",
+                  fields: [
+                    {
+                      label: "Header", name: "header", widget: "object",
+                      fields: [
+                        { label: "Logo Text", name: "logo", widget: "string" },
+                        { label: "Theme Light Label", name: "themeLight", widget: "string" },
+                        { label: "Theme Dark Label", name: "themeDark", widget: "string" },
+                        { label: "Theme System Label", name: "themeSystem", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Hero Section", name: "hero", widget: "object",
+                      fields: [
+                        { label: "Headline", name: "headline", widget: "string" },
+                        { label: "Subheadline", name: "subheadline", widget: "string" },
+                        { label: "CTA Button Text", name: "cta", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "About Section", name: "about", widget: "object",
+                      fields: [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Body Text", name: "text", widget: "text" },
+                      ],
+                    },
+                    {
+                      label: "Blog Section", name: "blog", widget: "object",
+                      fields: [
+                        { label: "Section Title", name: "title", widget: "string" },
+                        { label: "Read More Link Text", name: "readMore", widget: "string" },
+                        { label: "No Articles Message", name: "noArticles", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Contact Section", name: "contact", widget: "object",
+                      fields: [
+                        { label: "Title", name: "title", widget: "string" },
+                        { label: "Body Text", name: "text", widget: "text" },
+                        { label: "CTA Button Text", name: "cta", widget: "string" },
+                        { label: "Email Address", name: "email", widget: "string" },
+                        { label: "Phone Number", name: "phone", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Footer", name: "footer", widget: "object",
+                      fields: [
+                        { label: "Copyright Text", name: "copyright", widget: "string" },
+                        { label: "Privacy Policy Link Text", name: "privacy", widget: "string" },
+                        { label: "Terms of Service Link Text", name: "terms", widget: "string" },
+                      ],
+                    },
+                    {
+                      label: "Form Wizard", name: "formWizard", widget: "object",
+                      fields: [
+                        {
+                          label: "Step 1", name: "step1", widget: "object",
+                          fields: [
+                            { label: "Title", name: "title", widget: "string" },
+                            { label: "Fitness Goal Label", name: "fitnessGoal", widget: "string" },
+                            { label: "Weight Loss Option", name: "weightLoss", widget: "string" },
+                            { label: "Muscle Gain Option", name: "muscleGain", widget: "string" },
+                            { label: "General Fitness Option", name: "generalFitness", widget: "string" },
+                            { label: "Strength Option", name: "strength", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "Step 2", name: "step2", widget: "object",
+                          fields: [
+                            { label: "Title", name: "title", widget: "string" },
+                            { label: "Experience Level Label", name: "experienceLevel", widget: "string" },
+                            { label: "Beginner Option", name: "beginner", widget: "string" },
+                            { label: "Intermediate Option", name: "intermediate", widget: "string" },
+                            { label: "Advanced Option", name: "advanced", widget: "string" },
+                            { label: "Days Per Week Label", name: "daysPerWeek", widget: "string" },
+                            { label: "Additional Info Label", name: "additionalInfo", widget: "string" },
+                          ],
+                        },
+                        {
+                          label: "Step 3", name: "step3", widget: "object",
+                          fields: [
+                            { label: "Title", name: "title", widget: "string" },
+                            { label: "First Name Label", name: "firstName", widget: "string" },
+                            { label: "Last Name Label", name: "lastName", widget: "string" },
+                            { label: "Email Label", name: "email", widget: "string" },
+                            { label: "Accept Terms Label", name: "acceptTerms", widget: "string" },
+                          ],
+                        },
+                        { label: "Next Button", name: "next", widget: "string" },
+                        { label: "Previous Button", name: "previous", widget: "string" },
+                        { label: "Submit Button", name: "submit", widget: "string" },
+                        { label: "Step Counter Text", name: "stepOf", widget: "string" },
+                        { label: "Success Message", name: "success", widget: "string" },
+                        { label: "Error Message", name: "error", widget: "string" },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      });
+    </script>
   </body>
 </html>
